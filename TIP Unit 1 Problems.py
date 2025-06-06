@@ -14,7 +14,12 @@ def print_catchphrase(character):
             return value
     return f"Sorry! I don't know {character}'s catchphrase!"
         
-
+# Problem 4: Return Item
+def get_item(items, x):
+    if 0 <= x < len(items):
+        return items[x]
+    else:
+        return None
 
 #################################################
 
@@ -27,6 +32,11 @@ def main():
 
     # P3
     assert print_catchphrase("Tigger") == "TTFN: Ta-ta for now!"
+
+    # P4
+    items = ["piglet", "pooh", "roo", "rabbit"]
+    x = 2
+    assert (get_item(items, x)) == 'roo'
 
     print("All Test cases passed!")
 if __name__ == "__main__":
