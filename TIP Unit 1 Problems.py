@@ -42,7 +42,13 @@ def count_less_than(race_times, threshold):
         if race_times[i] < threshold:
             ans += 1
     return ans
-	
+
+# Problem 8: Pooh's To Do's
+def print_todo_list(task):
+    string = "Pooh's To Dos:\n"
+    for i in range(len(task)):
+        string += f'{i+1}. {task[i]}\n'
+    return string
 	
 #################################################
 
@@ -73,7 +79,7 @@ def main():
     assert count_less_than([1, 5, 3, 6, 2], 4) == 3
 
     # P8
-    
+    assert print_todo_list([]) == "Pooh's To Dos:\n"
 
     print("All Test cases passed!")
 if __name__ == "__main__":
