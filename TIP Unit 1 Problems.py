@@ -20,6 +20,14 @@ def get_item(items, x):
         return items[x]
     else:
         return None
+    
+# Problem 5: Total Honey
+def sum_honey(hunny_jars):
+    sum = 0
+    for i in hunny_jars:
+        sum += i
+    return sum
+
 
 #################################################
 
@@ -37,6 +45,10 @@ def main():
     items = ["piglet", "pooh", "roo", "rabbit"]
     x = 2
     assert (get_item(items, x)) == 'roo'
+
+    # P5
+    hunny_jars = [2, 3, 4, 5]
+    assert sum_honey(hunny_jars) == 14
 
     print("All Test cases passed!")
 if __name__ == "__main__":
