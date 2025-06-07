@@ -49,7 +49,14 @@ def print_todo_list(task):
     for i in range(len(task)):
         string += f'{i+1}. {task[i]}\n'
     return string
-	
+
+
+def can_pair(item_quantities):
+    for i in item_quantities:
+        if i % 2 != 0:
+            return False
+    return True
+
 #################################################
 
 def main():
@@ -80,6 +87,9 @@ def main():
 
     # P8
     assert print_todo_list([]) == "Pooh's To Dos:\n"
+
+    # P9
+    assert can_pair([]) == True
 
     print("All Test cases passed!")
 if __name__ == "__main__":
