@@ -34,6 +34,15 @@ def doubled(hunny_jars):
     for i in hunny_jars:
         list_d.append(i*2)
     return list_d
+
+# Problem 7: Poohsticks
+def count_less_than(race_times, threshold):
+    ans = 0
+    for i in range(len(race_times)):
+        if race_times[i] < threshold:
+            ans += 1
+    return ans
+	
 	
 #################################################
 
@@ -59,6 +68,12 @@ def main():
     # P6
     hunny_jars = [1, 2, 3]
     assert doubled(hunny_jars) == [2, 4, 6]
+
+    # P7
+    assert count_less_than([1, 5, 3, 6, 2], 4) == 3
+
+    # P8
+    
 
     print("All Test cases passed!")
 if __name__ == "__main__":
