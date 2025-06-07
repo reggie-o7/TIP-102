@@ -50,7 +50,7 @@ def print_todo_list(task):
         string += f'{i+1}. {task[i]}\n'
     return string
 
-
+# Problem 9: Pairs
 def can_pair(item_quantities):
     for i in item_quantities:
         if i % 2 != 0:
