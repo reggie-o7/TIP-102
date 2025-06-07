@@ -28,7 +28,13 @@ def sum_honey(hunny_jars):
         sum += i
     return sum
 
-
+# Problem 6: Double Trouble
+def doubled(hunny_jars):
+    list_d = []
+    for i in hunny_jars:
+        list_d.append(i*2)
+    return list_d
+	
 #################################################
 
 def main():
@@ -49,6 +55,10 @@ def main():
     # P5
     hunny_jars = [2, 3, 4, 5]
     assert sum_honey(hunny_jars) == 14
+
+    # P6
+    hunny_jars = [1, 2, 3]
+    assert doubled(hunny_jars) == [2, 4, 6]
 
     print("All Test cases passed!")
 if __name__ == "__main__":
