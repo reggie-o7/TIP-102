@@ -136,6 +136,31 @@ def exclusive_elemts(lst1, lst2):
             ans.append(i)
     return ans
 
+# Problem 9: Merge Strings Alternately
+def merge_alternately(word1, word2):
+    new_str = ''
+    max_len = max(len(word1), len(word2))
+    for i in range(max_len):
+        if i < len(word1):
+            new_str += word1[i]
+        if i < len(word2):
+            new_str += word2[i]
+    return new_str
+
+# Problem 10: Eeyore's House
+def good_pairs(pile1, pile2, k):
+    count = 0
+    for i in range(len(pile1)):
+        for j in range(len(pile2)):
+            if pile1[i] % (pile2[j] * k) == 0:
+                count += 1
+    return count
+
+# Breakout Problems Session 2
+# Advanced Problem Set Version 1
+# Problem 1: Transpose Matrix
+def transpose(matrix):
+    pass
 
 
 
@@ -211,6 +236,21 @@ def main():
     lst1 = ["pooh", "roo"]
     lst2 = ["piglet", "eeyore", "owl", "kanga"]
     assert (exclusive_elemts(lst1, lst2)) == ["pooh", "roo", "piglet", "eeyore", "owl", "kanga"]
+
+    # P9
+    word1 = "wol"
+    word2 = "oze"
+    assert (merge_alternately(word1, word2)) == 'woozle'
+
+    # P10
+    pile1 = [1, 3, 4]
+    pile2 = [1, 3, 4]
+    k = 1
+    assert (good_pairs(pile1, pile2, k)) == 5
+
+    # Breakout Problems Session 2
+    # Advanced Problem Set Version 1
+    # P1
 
         
     print("All Test cases passed!")
