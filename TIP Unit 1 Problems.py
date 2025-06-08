@@ -64,16 +64,6 @@ def linear_search(lst, target):
             return i
     return -1
 
-# Problem 2: Bouncy, Flouncy, Trouncy, Pouncy
-def final_value_after_operations(operations):
-    trigger = 1
-    for i in operations:
-        if i == 'bouncy' or i == 'flouncy':
-            trigger += 1
-        else:
-            trigger -= 1
-    return trigger
-
 # Breakout Problems Session 2
 # Standard Problem Set Version 1
 # Problem 1: Reverse Sentence
@@ -107,6 +97,19 @@ def sum_of_digits(num):
     if num == 0:
         return 0
     return num % 10 + sum_of_digits(num // 10)
+
+# Problem 5: Bouncy, Flouncy, Trouncy, Pouncy
+def final_value_after_operations(operations):
+    trigger = 1
+    for i in operations:
+        if i == 'bouncy' or i == 'flouncy':
+            trigger += 1
+        else:
+            trigger -= 1
+    return trigger
+
+# Problem 6: Acronym
+
 
 
 
@@ -146,11 +149,7 @@ def main():
     # P9
     assert can_pair([]) == True
 
-    # ADV P1
-
-
-    # ADV P2
-    assert final_value_after_operations(["trouncy", "flouncy", "flouncy"]) == 2
+    
 
     # Breakout Problems Session 2
     # Standard Problem Set Version 1
@@ -168,6 +167,9 @@ def main():
     # P4
     num = 423
     assert (sum_of_digits(num)) == 9
+
+    # P5
+    assert final_value_after_operations(["trouncy", "flouncy", "flouncy"]) == 2
 
     
     print("All Test cases passed!")
