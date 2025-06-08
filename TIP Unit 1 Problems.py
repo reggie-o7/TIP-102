@@ -125,6 +125,19 @@ def make_divisible_by_3(nums):
             count += 1
     return count
 
+# Problem 8: Exclusive Elements
+def exclusive_elemts(lst1, lst2):
+    ans = []
+    for i in lst1:
+        if i not in lst2:
+            ans.append(i)
+    for i in lst2:
+        if i not in lst1:
+            ans.append(i)
+    return ans
+
+
+
 
 
 #################################################
@@ -194,7 +207,12 @@ def main():
     nums = [3, 6, 9]
     assert (make_divisible_by_3(nums)) == 0
 
-    
+    # P8
+    lst1 = ["pooh", "roo"]
+    lst2 = ["piglet", "eeyore", "owl", "kanga"]
+    assert (exclusive_elemts(lst1, lst2)) == ["pooh", "roo", "piglet", "eeyore", "owl", "kanga"]
+
+        
     print("All Test cases passed!")
 if __name__ == "__main__":
     main()
