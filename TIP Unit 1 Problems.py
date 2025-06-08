@@ -117,6 +117,15 @@ def is_acronym(words, s):
             return False
     return True
 
+# Problem 7: Good Things Come in Threes
+def make_divisible_by_3(nums):
+    count = 0
+    for i in nums:
+        if i % 3 != 0:
+            count += 1
+    return count
+
+
 
 #################################################
 
@@ -180,6 +189,10 @@ def main():
     words = ["christopher", "robin", "milne"]
     s = "crm"
     assert (is_acronym(words, s)) == True
+    
+    # P7
+    nums = [3, 6, 9]
+    assert (make_divisible_by_3(nums)) == 0
 
     
     print("All Test cases passed!")
