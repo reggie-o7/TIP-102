@@ -102,7 +102,13 @@ def delete_minimum_elements(hunny_jar_sizes):
         hunny_jar_sizes.remove(min_val)
     return new_list
 
-	
+# Problem 4: Sum of Digits
+def sum_of_digits(num):
+    if num == 0:
+        return 0
+    return num % 10 + sum_of_digits(num // 10)
+
+
 
 #################################################
 
@@ -160,7 +166,8 @@ def main():
     assert (delete_minimum_elements(hunny_jar_sizes)) == [1, 2, 3, 4, 5]
 
     # P4
-    
+    num = 423
+    assert (sum_of_digits(num)) == 9
 
     
     print("All Test cases passed!")
