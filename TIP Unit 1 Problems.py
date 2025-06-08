@@ -93,7 +93,14 @@ def goldilocks_approved(nums):
             return i
     return -1
 
-	
+# Problem 3: Delete Minimum
+def delete_minimum_elements(hunny_jar_sizes):
+    new_list = []
+    while len(hunny_jar_sizes) > 0:
+        min_val = min(hunny_jar_sizes)
+        new_list.append(min_val)
+        hunny_jar_sizes.remove(min_val)
+    return new_list
 
 	
 
@@ -147,6 +154,13 @@ def main():
 
     # P2
     assert goldilocks_approved([1, 2]) == -1
+
+    # P3
+    hunny_jar_sizes = [5, 3, 2, 4, 1]
+    assert (delete_minimum_elements(hunny_jar_sizes)) == [1, 2, 3, 4, 5]
+
+    # P4
+    
 
     
     print("All Test cases passed!")
