@@ -109,8 +109,13 @@ def final_value_after_operations(operations):
     return trigger
 
 # Problem 6: Acronym
-
-
+def is_acronym(words, s):
+    if len(s) != len(words):
+        return False 
+    for i in range(len(s)):
+        if words[i][0] != s[i]:
+            return False
+    return True
 
 
 #################################################
@@ -170,6 +175,11 @@ def main():
 
     # P5
     assert final_value_after_operations(["trouncy", "flouncy", "flouncy"]) == 2
+
+    # P6  
+    words = ["christopher", "robin", "milne"]
+    s = "crm"
+    assert (is_acronym(words, s)) == True
 
     
     print("All Test cases passed!")
