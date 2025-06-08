@@ -57,9 +57,51 @@ def can_pair(item_quantities):
             return False
     return True
 
+# Problem 1: Hunny Hunt
+def linear_search(lst, target):
+    for i in range(len(lst)):
+        if lst[i] == target:
+            return i
+    return -1
+
+# Problem 2: Bouncy, Flouncy, Trouncy, Pouncy
+def final_value_after_operations(operations):
+    trigger = 1
+    for i in operations:
+        if i == 'bouncy' or i == 'flouncy':
+            trigger += 1
+        else:
+            trigger -= 1
+    return trigger
+
+# Breakout Problems Session 2
+# Standard Problem Set Version 1
+# Problem 1: Reverse Sentence
+def reverse_sentence(sentence):
+    sentence = sentence.strip().split()
+    return ' '.join(sentence[::-1])
+
+# Problem 2: Goldilocks Number
+def goldilocks_approved(nums):
+    if len(nums) <= 2:
+        return -1
+    max_val = max(nums)
+    min_val = min(nums)
+
+    for i in nums:
+        if i != max_val and i != min_val:
+            return i
+    return -1
+
+	
+
+	
+
 #################################################
 
 def main():
+    # Breakout Problems Session 1
+    # Standard Problem Set Version 1
     # P1
     welcome()
 
@@ -91,6 +133,22 @@ def main():
     # P9
     assert can_pair([]) == True
 
+    # ADV P1
+
+
+    # ADV P2
+    assert final_value_after_operations(["trouncy", "flouncy", "flouncy"]) == 2
+
+    # Breakout Problems Session 2
+    # Standard Problem Set Version 1
+    # P1
+    sentence = "tubby little cubby all stuffed with fluff"
+    assert (reverse_sentence(sentence)) == 'fluff with stuffed all cubby little tubby'
+
+    # P2
+    assert goldilocks_approved([1, 2]) == -1
+
+    
     print("All Test cases passed!")
 if __name__ == "__main__":
     main()
