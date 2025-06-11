@@ -160,10 +160,23 @@ def good_pairs(pile1, pile2, k):
 # Advanced Problem Set Version 1
 # Problem 1: Transpose Matrix
 def transpose(matrix):
-    pass
+    new_matrix = []
+    rows = len(matrix)
+    cols = len(matrix[0])
 
+    for col in range(cols):
+        new_row = []
+        for row in range(rows):
+            new_row.append(matrix[row][col])
+        new_matrix.append(new_row)
+    return new_matrix
 
-
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print(transpose(matrix))
 
 #################################################
 
@@ -256,3 +269,13 @@ def main():
     print("All Test cases passed!")
 if __name__ == "__main__":
     main()
+
+
+
+def nana_batman(x):
+    i = 0 
+    string = ''
+    while i < x:
+        string += 'na'
+    return string + 'batman!'
+print(nana_batman(2))
