@@ -18,7 +18,12 @@ def can_trust_message(message):
     message = "".join(message.strip())
     if len(message) < 26:
         return False
-    alphabet = ""
+    new_str = ""
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    for i in range(len(message)):
+        if message[i] in alphabet and not in new_str:
+            new_str += message[i]
+            
 
 message1 = "sphinx of black quartz judge my vow"
 
