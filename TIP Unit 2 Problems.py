@@ -13,6 +13,15 @@ treasure_map1 = {
     "Forest": 5
 }
 
+# Problem 2: Pirate Message Check
+def can_trust_message(message):
+    message = "".join(message.strip())
+    if len(message) < 26:
+        return False
+    alphabet = ""
+
+message1 = "sphinx of black quartz judge my vow"
+
 
 
 
