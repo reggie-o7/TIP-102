@@ -4,6 +4,12 @@
 def total_treasure(treasure_map):
     pass
 
+treasure_map1 = {
+    "Cove": 3,
+    "Beach": 7,
+    "Forest": 5
+}
+
 def main():
     # Breakout Problems Session 1
     # Standard Problem Set Version 1
