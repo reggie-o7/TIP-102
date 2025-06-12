@@ -59,6 +59,31 @@ def find_duplicate_chests_opt(chests):
             chests[index] *= -1
     return ans
 
+# Problem 4: Booby Trap
+def is_balanced(code):
+    code = [*code]
+    print(code)
+    dict = {}
+    for i in range(len(code)):
+        if code[i] in dict:
+            dict[code[i]] += 1
+        else:
+            dict[code[i]] = 1
+    for key, value in dict.items():
+        check 
+
+
+
+
+
+code1 = "arghh"
+code2 = "haha"
+
+print(is_balanced(code1)) 
+# print(is_balanced(code2)) 
+
+
+
 
 def main():
     # Breakout Problems Session 1
@@ -71,6 +96,9 @@ def main():
 
     # P3
     assert (find_duplicate_chests(chests1)) == [3,2]
+
+    # P4
+    # assert (is_balanced(code1)) == True
         
     print("All Test cases passed!")
 if __name__ == "__main__":
