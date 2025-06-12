@@ -31,6 +31,34 @@ def can_trust_message_sets(message):
 message1 = "sphinx of black quartz judge my vow"
 message2 = "trust me"
 
+# Problem 3: Find All Duplicate Treasure Chests in an Array
+def find_duplicate_chests(chests):
+    ans = []
+    dict = {}
+    for i in range(len(chests)):
+        if chests[i] in dict:
+            dict[chests[i]] += 1
+        else:
+            dict[chests[i]] = 1
+    for key, value in dict.items():
+        if value == 2:
+            ans.append(key)
+    return ans
+
+chests1 = [4, 3, 2, 7, 8, 2, 3, 1]
+chests2 = [1, 1, 2]
+chests3 = [1]
+
+def find_duplicate_chests_opt(chests):
+    ans = []
+    for num in chests:
+        index = abs(num) - 1
+        if chests[index] < 0:
+            ans.append(abs(num))
+        else:
+            chests[index] *= -1
+    return ans
+
 
 def main():
     # Breakout Problems Session 1
@@ -40,6 +68,9 @@ def main():
 
     # P2
     assert (can_trust_message(message2)) == False
+
+    # P3
+    assert (find_duplicate_chests(chests1)) == [3,2]
         
     print("All Test cases passed!")
 if __name__ == "__main__":
