@@ -15,26 +15,31 @@ treasure_map1 = {
 
 # Problem 2: Pirate Message Check
 def can_trust_message(message):
-    message = "".join(message.strip())
+    message = "".join(message.split())
     if len(message) < 26:
         return False
-    new_str = ""
     alphabet = "abcdefghijklmnopqrstuvwxyz"
-    for i in range(len(message)):
-        if message[i] in alphabet and not in new_str:
-            new_str += message[i]
-            
+    for i in range(len(alphabet)):
+        if alphabet[i] not in message:
+            return False
+    return True  
+
+def can_trust_message_sets(message):
+    message = set(message.replace(' ',''))
+    return set("abcdefghijklmnopqrstuvwxyz").issubset(message)
 
 message1 = "sphinx of black quartz judge my vow"
-
-
+message2 = "trust me"
 
 
 def main():
     # Breakout Problems Session 1
     # Standard Problem Set Version 1
     # P1
-    assert (total_treasures(treasure_map1)) == 15
+    assert (total_treasure(treasure_map1)) == 15
+
+    # P2
+    assert (can_trust_message(message2)) == False
         
     print("All Test cases passed!")
 if __name__ == "__main__":
