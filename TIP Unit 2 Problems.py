@@ -62,28 +62,115 @@ def find_duplicate_chests_opt(chests):
 # Problem 4: Booby Trap
 def is_balanced(code):
     code = [*code]
-    print(code)
-    dict = {}
+    dict1 = {}
     for i in range(len(code)):
-        if code[i] in dict:
-            dict[code[i]] += 1
+        if code[i] in dict1:
+            dict1[code[i]] += 1
         else:
-            dict[code[i]] = 1
-    for key, value in dict.items():
-        check 
+            dict1[code[i]] = 1
+    
 
+    for j in dict1:
+        temp_dict = dict(dict1)
+        temp_dict[j] -= 1
 
+        if temp_dict[j] == 0:
+            del temp_dict[j]
+        
+        values = list(temp_dict.values())
 
-
+        if len(set(values)) == 1:
+            return True
+    return False
 
 code1 = "arghh"
 code2 = "haha"
 
-print(is_balanced(code1)) 
-# print(is_balanced(code2)) 
+# Problem 5: Overflowing With Gold
+def find_treasure_indices(gold_amounts, target):
+    for i in range(len(gold_amounts)):
+        for j in range(i+1, len(gold_amounts)):
+            if gold_amounts[i] + gold_amounts[j] == target:
+                return [i,j]
 
 
+# Problem 6: Organize the Pirate Crew
+def organize_pirate_crew(group_sizes):
+    groups = {}
+    ans = []
+    for i in range(len(group_sizes)):
+        if group_sizes[i] not in groups:
+            groups[group_sizes[i]] = []
 
+        groups[group_sizes[i]].append(i)
+
+        if len(groups[group_sizes[i]]) == group_sizes[i]:
+            ans.append(groups[group_sizes[i]])
+            groups[group_sizes[i]] = []
+    return ans
+
+def organize_pirate_crew_with_enum(group_sizes):
+    groups = {}  
+    ans = []     
+
+    for pirate_id, size in enumerate(group_sizes):
+        if size not in groups:
+            groups[size] = []
+
+        groups[size].append(pirate_id)
+
+        if len(groups[size]) == size:
+            ans.append(groups[size])
+            groups[size] = []
+
+    return ans
+
+
+group_sizes1 = [3, 3, 3, 3, 3, 1, 3]
+
+
+# Problem 7: Minimum Number of Steps to Match Treasure Maps
+def min_steps_to_match_maps(map1, map2):
+    map1dict = {}
+    map2dict = {}
+    for i in range(len(map1)):
+        if map1[i] in map1dict:
+            map1dict[map1[i]] += 1
+        else:
+            map1dict[map1[i]] = 1
+        if map2[i] in map2dict:
+            map2dict[map2[i]] += 1
+        else:
+            map2dict[map2[i]] = 1
+    ans = 0
+    for key, value in map2dict.items():
+        count_map_1 = map1dict.get(key,0)
+        if value > count_map_1:
+            ans += abs(value - count_map_1)
+    return ans
+
+map1_1 = "bab"
+map2_1 = "aba"
+
+# Problem 8: Counting Pirates' Action Minutes
+def counting_pirates_action_minutes(logs, k):
+    log_dict = {}
+    for pirate_id, minute in logs:
+        if pirate_id in log_dict:
+            log_dict[pirate_id].append(minute)
+        else:
+            log_dict[pirate_id] = [minute]
+    print(log_dict)
+
+    ans = [0] * k
+    for pirate_id in log_dict:
+        unique_pam = len(set(log_dict[pirate_id]))
+        if 1 <= unique_pam <= k:
+            ans[unique_pam - 1] += 1
+    return ans
+
+logs1 = [[0, 5], [1, 2], [0, 2], [0, 5], [1, 3]]
+k1 = 5
 
 def main():
     # Breakout Problems Session 1
@@ -98,7 +185,7 @@ def main():
     assert (find_duplicate_chests(chests1)) == [3,2]
 
     # P4
-    # assert (is_balanced(code1)) == True
+    assert (is_balanced(code1)) == True
         
     print("All Test cases passed!")
 if __name__ == "__main__":
