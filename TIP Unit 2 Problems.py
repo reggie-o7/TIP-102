@@ -202,7 +202,7 @@ def is_authentic_collection(art_pieces):
         return False
     
     for i in range(1,max_key):
-        if freq.get(1,0) != 1:
+        if freq.get(i,0) != 1:
             return False
         
     if freq.get(max_key, 0) != 2:
@@ -233,6 +233,59 @@ def organize_exhibition(collection):
 
 collection1 = ["O'Keefe", "Kahlo", "Picasso", "O'Keefe", "Warhol", 
               "Kahlo", "O'Keefe"]
+
+# Problem 4: Gallery Subdomain Traffic
+def subdomain_visits(cpdomains):
+    counts = {}  # normal dictionary
+
+  
+    for i in cpdomains:
+        count_str, domain = i.split()                        # e.g. "9001 modern.artmuseum.com"
+        count = int(count_str)                        # convert "9001" -> 9001
+        parts = domain.split('.')                        # ['modern', 'artmuseum', 'com']
+
+        for j in range(len(parts)):                            # Build subdomains from right to left
+            subdomain = '.'.join(parts[j:])                        # e.g. "artmuseum.com", then "modern.artmuseum.com"
+            if subdomain in counts:
+                counts[subdomain] += count
+            else:
+                counts[subdomain] = count
+
+    # Build final result
+    ans = []
+    for i in counts:
+        ans.append(str(counts[i]) + ' ' + i)
+    return ans
+   
+
+cpdomains1 = ["9001 modern.artmuseum.com"]
+
+
+# Problem 5: Beautiful Collection
+def beauty_sum(collection):
+    pass
+
+print(beauty_sum("aabcb")) 
+print(beauty_sum("aabcbaa"))
+
+def count_endangered_species(endangered_species, observed_species):
+    freq = {}
+    for i in observed_species:
+        freq[i] = freq.get(i,0) + 1
+
+    # endangered = [*endangered_species]
+    endangered = set(endangered_species)
+    
+    ans = 0
+    for j in endangered:
+        if j in freq:
+            ans += freq[j]
+    return ans
+
+endangered_species1 = "aA"
+observed_species1 = "aAAbbbb"
+
+print(count_endangered_species(endangered_species1, observed_species1))
 
 
 def main():
