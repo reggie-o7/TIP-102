@@ -152,6 +152,7 @@ def min_steps_to_match_maps(map1, map2):
 map1_1 = "bab"
 map2_1 = "aba"
 
+
 # Problem 8: Counting Pirates' Action Minutes
 def counting_pirates_action_minutes(logs, k):
     log_dict = {}
@@ -171,6 +172,68 @@ def counting_pirates_action_minutes(logs, k):
 
 logs1 = [[0, 5], [1, 2], [0, 2], [0, 5], [1, 3]]
 k1 = 5
+
+# Breakout Problems Session 2
+# Avanced Problem Set Version 1
+# Problem 1: Balanced Art Collection
+def find_balanced_subsequence(art_pieces):
+    ans = 0
+    freq = {}
+    for i in art_pieces:
+        freq[i] = freq.get(i, 0) + 1
+
+    for j in freq:
+        if j + 1 in freq:
+            ans = max(ans, freq[j] + freq[j+1])
+    return ans
+
+
+art_pieces1 = [1,3,2,2,5,2,3,7]
+
+# Problem 2: Verifying Authenticity
+def is_authentic_collection(art_pieces):
+    freq = {}
+    for i in art_pieces:
+        freq[i] = freq.get(i,0) + 1
+
+    max_key = max(freq)
+    
+    if len(art_pieces) != max_key+1:
+        return False
+    
+    for i in range(1,max_key):
+        if freq.get(1,0) != 1:
+            return False
+        
+    if freq.get(max_key, 0) != 2:
+        return False
+    
+    return True
+
+collection1 = [2, 1, 3]
+collection2 = [1, 3, 3, 2]
+collection3 = [1, 1]
+
+# Problem 3: Gallery Wall
+def organize_exhibition(collection):
+    ans = []
+    freq = {}
+    for i in collection:
+        freq[i] = freq.get(i,0) + 1
+
+    while any(freq[j] > 0 for j in freq):
+        current_ans = []
+        for j in freq:
+            if freq[j] > 0:
+                freq[j] -= 1
+                current_ans.append(j)
+        ans.append(current_ans)
+    return ans
+
+
+collection1 = ["O'Keefe", "Kahlo", "Picasso", "O'Keefe", "Warhol", 
+              "Kahlo", "O'Keefe"]
+
 
 def main():
     # Breakout Problems Session 1
