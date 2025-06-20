@@ -113,8 +113,54 @@ def engagement_boost(engagements):
 
 # Problem 5: Content Cleaner
 def clean_post(post):
-  pass
+    stack = []
 
-print(clean_post("poOost")) 
-print(clean_post("abBAcC")) 
-print(clean_post("s")) 
+    for i in post:
+        if len(stack) > 0 and abs(ord(stack[-1]) - ord(i)) == 32:
+            stack.pop()
+        else:
+            stack.append(i)
+    return ''.join(stack)
+
+# print(clean_post("poOost")) 
+# print(clean_post("abBAcC")) 
+# print(clean_post("s"))
+
+# Problem 6: Post Editor
+from collections import deque 
+def edit_post(post):
+    queue = deque()
+
+    res = []
+    for i in range(len(post)):
+        if post[i] != ' ':
+            queue.appendleft(post[i])
+        else:
+            while queue:
+                res.append(queue.popleft())
+            res.append(post[i])
+    while queue:
+        res.append(queue.popleft())
+                
+    return ''.join(res)
+
+# print(edit_post("Boost your engagement with these tips")) 
+# print(edit_post("Check out my latest vlog"))
+
+# Problem 7: Post Compare
+def remove_hash(text)->str:
+    stack = []
+    for i in range(len(text)):
+        if text[i] == '#':
+            if stack:
+                stack.pop()
+        else:
+            stack.append(text[i])
+    return ''.join(stack) 
+
+def post_compare(draft1, draft2):
+    return remove_hash(draft1) == remove_hash(draft2)
+
+# print(post_compare("ab#c", "ad#c"))
+# print(post_compare("ab##", "c#d#")) 
+# print(post_compare("a#c", "b")) 
