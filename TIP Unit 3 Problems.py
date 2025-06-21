@@ -44,25 +44,26 @@ def is_valid_post_format(posts):
         if i in bracket_map.values():
             stack.append(i)
         elif i in bracket_map:
-            if not stack or stack[-1] != bracket_map[i]:
+            if not stack or stack.pop() != bracket_map[i]:
                 return False
-            stack.pop()
-    return True
+    return len(stack) == 0
 
-# print(is_valid_post_format("()"))
-# print(is_valid_post_format("()[]{}")) 
-# print(is_valid_post_format("(]"))
+print(is_valid_post_format("()"))
+print(is_valid_post_format("()[]{}")) 
+print(is_valid_post_format("(]"))
   
 # Problem 2: Reverse User Comments Queue
 def reverse_comments_queue(comments):
     stack = []
 
     while len(comments) > 0:
-        stack.append(comments.pop(0))
-    rev_com = []
-    while len(stack) > 0:
-        rev_com.append(stack.pop())
-    return rev_com
+        stack.append(comments.pop())
+    return stack
+
+    # rev_com = []
+    # while len(stack) > 0:
+    #     rev_com.append(stack.pop())
+    # return rev_com
 
 # print(reverse_comments_queue(["Great post!", "Love it!", "Thanks for sharing."]))
 # print(reverse_comments_queue(["First!", "Interesting read.", "Well written."]))
@@ -75,7 +76,7 @@ def is_symmetrical_title(title):
     for i in title1:
         code = ord(i)
         if (97 <= code <= 122):
-             clean_title += i
+            clean_title += i
 
     left = 0
     right = len(clean_title) - 1
@@ -315,5 +316,5 @@ def sort_performances_by_type(performances):
 
     return stack
 
-print(sort_performances_by_type([3, 1, 2, 4]))
-print(sort_performances_by_type([0]))
+# print(sort_performances_by_type([3, 1, 2, 4]))
+# print(sort_performances_by_type([0]))
