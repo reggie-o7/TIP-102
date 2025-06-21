@@ -163,4 +163,157 @@ def post_compare(draft1, draft2):
 
 # print(post_compare("ab#c", "ad#c"))
 # print(post_compare("ab##", "c#d#")) 
-# print(post_compare("a#c", "b")) 
+# # print(post_compare("a#c", "b")) 
+
+# Breakout Problems Session 2
+# Standard Problem Set Version 1
+# Problem 1: Manage Performance Stage Changes
+def manage_stage_changes(changes):
+    stack_schedule = []
+    stack_cancel = []
+
+    for i in changes:
+        if "Schedule" in i:
+            stack_schedule.append(i[-1])
+        elif i == 'Cancel':
+            if stack_schedule:
+                canceled = stack_schedule.pop()
+                stack_cancel.append(canceled)
+        else:
+            if i == "Reschedule":
+                if stack_cancel:
+                    reschedule = stack_cancel.pop()
+                    stack_schedule.append(reschedule)
+    return stack_schedule
+
+# print(manage_stage_changes(["Schedule A", "Schedule B", "Cancel", "Schedule C", "Reschedule", "Schedule D"]))  
+# print(manage_stage_changes(["Schedule A", "Cancel", "Schedule B", "Cancel", "Reschedule", "Cancel"])) 
+# print(manage_stage_changes(["Schedule X", "Schedule Y", "Cancel", "Cancel", "Schedule Z"]))
+
+# Problem 2: Queue of Performance Requests
+from collections import deque
+def process_performance_requests(requests):
+    queue = deque()
+
+    while len(requests) > 0:
+
+        max_val = 0
+        for i in requests:
+            if i[0] > max_val:
+                max_val = i[0]
+    
+        for j in requests:
+            if j[0] == max_val:
+                queue.append(j[1])
+                requests.remove(j)
+                break
+
+    return list(queue)
+    
+
+# print(process_performance_requests([(3, 'Dance'), (5, 'Music'), (1, 'Drama')]))
+# print(process_performance_requests([(2, 'Poetry'), (1, 'Magic Show'), (4, 'Concert'), (3, 'Stand-up Comedy')]))
+# print(process_performance_requests([(1, 'Art Exhibition'), (3, 'Film Screening'), (2, 'Workshop'), (5, 'Keynote Speech'), (4, 'Panel Discussion')]))
+
+# Problem 3: Collecting Points at Festival Booths
+def collect_festival_points(points):
+    stack = []
+
+    for i in points:
+        stack.append(i)
+
+    ans = 0
+    while stack:
+        ans += stack.pop()
+    return ans
+
+# print(collect_festival_points([5, 8, 3, 10])) 
+# print(collect_festival_points([2, 7, 4, 6])) 
+# print(collect_festival_points([1, 5, 9, 2, 8])) 
+
+# Problem 4: Festival Booth Navigation
+def booth_navigation(clues):
+    stack = []
+
+    for i in clues:
+        if i == "back":
+            if stack:
+                stack.pop()
+        else:
+            stack.append(i)
+    return stack
+
+# clues = [1, 2, "back", 3, 4]
+# print(booth_navigation(clues)) 
+
+# clues = [5, 3, 2, "back", "back", 7]
+# print(booth_navigation(clues)) 
+
+# clues = [1, "back", 2, "back", "back", 3]
+# print(booth_navigation(clues))
+
+# Problem 5: Merge Performance Schedules
+def merge_schedules(schedule1, schedule2):
+    ans = ''
+
+    largest = max(len(schedule1), len(schedule2))
+
+    for i in range(largest):
+        if len(schedule1) > i:
+            ans += schedule1[i]
+        if len(schedule2) > i:
+            ans += schedule2[i]
+    return ans
+
+# print(merge_schedules("abc", "pqr")) 
+# print(merge_schedules("ab", "pqrs")) 
+# print(merge_schedules("abcd", "pq"))
+
+# Problem 6: Next Greater Event
+def next_greater_event(schedule1, schedule2):
+    stack = []
+
+    for i in schedule1:
+        for j in range(len(schedule2)):
+            if schedule2[j] == i:
+                index = j
+                if len(schedule2) > index+1 and schedule2[index+1] > schedule2[index]:
+                    stack.append(schedule2[index+1])
+                    break
+                else:
+                    stack.append(-1)
+                    break
+    return stack
+    
+# print(next_greater_event([4, 1, 2], [1, 3, 4, 2])) 
+# print(next_greater_event([2, 4], [1, 2, 3, 4]))
+# print(next_greater_event([3], [5, 3, 6])) 
+
+# Problem 7: Sort Performances by Type
+def sort_performances_by_type(performances):
+    stack = []
+
+    evens = []
+    for i in performances:
+        if i % 2 == 0:
+            evens.append(i)
+
+    while evens:
+        max_val = (max(evens))
+        stack.append(max_val)
+        evens.remove(max_val)
+
+    odds = []
+    for j in performances:
+        if j % 2 != 0:
+            odds.append(j)
+
+    while odds:
+        min_val = (min(odds))
+        stack.append(min_val)
+        odds.remove(min_val)
+
+    return stack
+
+print(sort_performances_by_type([3, 1, 2, 4]))
+print(sort_performances_by_type([0]))
