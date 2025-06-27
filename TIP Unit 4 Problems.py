@@ -170,8 +170,10 @@ print(process_supplies(supplies_3))
 
 
 def calculate_fabric_waste(items, fabric_rolls):
-    pass
-
+    waste = 0
+    for i in range(len(items)):
+        waste += (fabric_rolls[i] - items[i][1])
+    return waste
 
 items = [("T-Shirt", 2), ("Pants", 3), ("Jacket", 5)]
 fabric_rolls = [5, 5, 5]
