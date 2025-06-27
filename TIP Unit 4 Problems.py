@@ -140,8 +140,12 @@ fabrics_3 = [("Linen", 40), ("Hemp", 35), ("Recycled Polyester", 25), ("Bamboo",
 
 # Problem 5: Fabric Stacks
 def organize_fabrics(fabrics):
-    pass
-
+    fabrics.sort(key=lambda x: x[1], reverse=True)
+    ans = []
+    for i in fabrics:
+        ans.append(i[0])
+    return ans
+    
 fabrics = [("Organic Cotton", 8), ("Recycled Polyester", 6), ("Bamboo", 7), ("Hemp", 9)]
 fabrics_2 = [("Linen", 5), ("Recycled Wool", 9), ("Tencel", 7), ("Organic Cotton", 6)]
 fabrics_3 = [("Linen", 4), ("Hemp", 8), ("Recycled Polyester", 5), ("Bamboo", 7)]
@@ -149,3 +153,19 @@ fabrics_3 = [("Linen", 4), ("Hemp", 8), ("Recycled Polyester", 5), ("Bamboo", 7)
 print(organize_fabrics(fabrics))
 print(organize_fabrics(fabrics_2))
 print(organize_fabrics(fabrics_3))
+
+
+
+def process_supplies(supplies):
+    supplies.sort(key=lambda x: x[1], reverse=True)
+    return [i[0] for i in supplies]
+
+supplies = [("Organic Cotton", 3), ("Recycled Polyester", 2), ("Bamboo", 4), ("Hemp", 1)]
+supplies_2 = [("Linen", 2), ("Recycled Wool", 5), ("Tencel", 3), ("Organic Cotton", 4)]
+supplies_3 = [("Linen", 3), ("Hemp", 2), ("Recycled Polyester", 5), ("Bamboo", 1)]
+
+print(process_supplies(supplies))
+print(process_supplies(supplies_2))
+print(process_supplies(supplies_3))
+
+
