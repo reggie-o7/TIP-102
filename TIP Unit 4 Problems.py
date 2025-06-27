@@ -188,3 +188,21 @@ print(calculate_fabric_waste(items, fabric_rolls))
 print(calculate_fabric_waste(items_2, fabric_rolls))
 print(calculate_fabric_waste(items_3, fabric_rolls))
 
+
+def organize_fabric_rolls(fabric_rolls):
+    sorted_rolls = sorted(fabric_rolls)
+    
+    left = 0
+    right = len(sorted_rolls) - 1
+    
+    while left < right:
+        
+
+fabric_rolls = [15, 10, 25, 30, 22]
+fabric_rolls_2 = [5, 8, 10, 7, 12, 14]
+fabric_rolls_3 = [40, 10, 25, 15, 30]
+
+print(organize_fabric_rolls(fabric_rolls))
+print(organize_fabric_rolls(fabric_rolls_2))
+print(organize_fabric_rolls(fabric_rolls_3))
+
