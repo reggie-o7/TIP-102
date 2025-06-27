@@ -33,8 +33,15 @@ brands_3 = [
 
 # Problem 2: Eco-Friendly Materials
 def count_material_usage(brands):
-    pass
+    ans = {}
+    for i in brands:
+        for j in i.get("materials"):
+            if j in ans:
+                ans[j] += 1
+            else:
+                ans[j] = 1
 
+    return ans         
 
 brands = [
     {"name": "EcoWear", "materials": ["organic cotton", "recycled polyester"]},
@@ -54,6 +61,79 @@ brands_3 = [
     {"name": "GreenLife", "materials": ["recycled polyester", "bamboo"]}
 ]
 
-print(count_material_usage(brands))
-print(count_material_usage(brands_2))
-print(count_material_usage(brands_3))
+# print(count_material_usage(brands))
+# print(count_material_usage(brands_2))
+# print(count_material_usage(brands_3))
+
+
+# Problem 3: Fashion Trends
+def find_trending_materials(brands):
+    dict1 = {}
+    ans = []
+    for i in brands:
+        for j in i.get("materials"):
+            if j in dict1:
+                dict1[j] += 1
+            else:
+                dict1[j] = 1
+    for key, value in dict1.items():
+        if value > 1:
+            ans.append(key)
+
+    return ans
+
+brands = [
+    {"name": "EcoWear", "materials": ["organic cotton", "recycled polyester"]},
+    {"name": "GreenThreads", "materials": ["organic cotton", "bamboo"]},
+    {"name": "SustainableStyle", "materials": ["bamboo", "recycled polyester"]}
+]
+
+brands_2 = [
+    {"name": "NatureWear", "materials": ["hemp", "linen"]},
+    {"name": "Earthly", "materials": ["organic cotton", "hemp"]},
+    {"name": "GreenFit", "materials": ["linen", "recycled wool"]}
+]
+
+brands_3 = [
+    {"name": "OrganicThreads", "materials": ["organic cotton"]},
+    {"name": "EcoFashion", "materials": ["recycled polyester", "hemp"]},
+    {"name": "GreenLife", "materials": ["recycled polyester", "bamboo"]}
+]
+
+# print(find_trending_materials(brands))
+# print(find_trending_materials(brands_2))
+# print(find_trending_materials(brands_3))
+
+# Problem 4: Fabric Pairing
+def find_best_fabric_pair(fabrics, budget):
+    fabrics.sort(key=lambda x: x[1])
+    left = 0
+    right = len(fabrics) - 1
+    max_sum = float('-inf')
+    best_pair = None
+
+    while left < right:
+        current_sum = fabrics[left][1] + fabrics[right][1]
+
+        if current_sum == budget:
+            return (fabrics[left][0], fabrics[right][0])
+            
+        elif current_sum < budget and current_sum > max_sum:
+            max_sum = current_sum
+            best_pair = (fabrics[left][0], fabrics[right][0])
+            leftt += 1
+        elif current_sum > budget:
+            right -= 1
+        else:
+            left += 1
+            
+    return best_pair
+
+
+fabrics = [("Organic Cotton", 30), ("Recycled Polyester", 20), ("Bamboo", 25), ("Hemp", 15)]
+fabrics_2 = [("Linen", 50), ("Recycled Wool", 40), ("Tencel", 30), ("Organic Cotton", 60)]
+fabrics_3 = [("Linen", 40), ("Hemp", 35), ("Recycled Polyester", 25), ("Bamboo", 20)]
+
+print(find_best_fabric_pair(fabrics, 45))
+print(find_best_fabric_pair(fabrics_2, 70))
+print(find_best_fabric_pair(fabrics_3, 60))
