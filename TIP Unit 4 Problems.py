@@ -126,7 +126,7 @@ def find_best_fabric_pair(fabrics, budget):
             right -= 1
         else:
             left += 1
-            
+
     return best_pair
 
 
@@ -134,6 +134,18 @@ fabrics = [("Organic Cotton", 30), ("Recycled Polyester", 20), ("Bamboo", 25), (
 fabrics_2 = [("Linen", 50), ("Recycled Wool", 40), ("Tencel", 30), ("Organic Cotton", 60)]
 fabrics_3 = [("Linen", 40), ("Hemp", 35), ("Recycled Polyester", 25), ("Bamboo", 20)]
 
-print(find_best_fabric_pair(fabrics, 45))
-print(find_best_fabric_pair(fabrics_2, 70))
-print(find_best_fabric_pair(fabrics_3, 60))
+# print(find_best_fabric_pair(fabrics, 45))
+# print(find_best_fabric_pair(fabrics_2, 70))
+# print(find_best_fabric_pair(fabrics_3, 60))
+
+# Problem 5: Fabric Stacks
+def organize_fabrics(fabrics):
+    pass
+
+fabrics = [("Organic Cotton", 8), ("Recycled Polyester", 6), ("Bamboo", 7), ("Hemp", 9)]
+fabrics_2 = [("Linen", 5), ("Recycled Wool", 9), ("Tencel", 7), ("Organic Cotton", 6)]
+fabrics_3 = [("Linen", 4), ("Hemp", 8), ("Recycled Polyester", 5), ("Bamboo", 7)]
+
+print(organize_fabrics(fabrics))
+print(organize_fabrics(fabrics_2))
+print(organize_fabrics(fabrics_3))
