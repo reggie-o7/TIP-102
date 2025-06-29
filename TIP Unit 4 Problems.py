@@ -150,21 +150,12 @@ fabrics = [("Organic Cotton", 8), ("Recycled Polyester", 6), ("Bamboo", 7), ("He
 fabrics_2 = [("Linen", 5), ("Recycled Wool", 9), ("Tencel", 7), ("Organic Cotton", 6)]
 fabrics_3 = [("Linen", 4), ("Hemp", 8), ("Recycled Polyester", 5), ("Bamboo", 7)]
 
-<<<<<<< HEAD
 # print(organize_fabrics(fabrics))
 # print(organize_fabrics(fabrics_2))
 # print(organize_fabrics(fabrics_3))
 
 
 # Problem 6: Supply Chain
-=======
-print(organize_fabrics(fabrics))
-print(organize_fabrics(fabrics_2))
-print(organize_fabrics(fabrics_3))
-
-
-
->>>>>>> b75849b1580be4e0d4d710e0eeb84b8378ba8e07
 def process_supplies(supplies):
     supplies.sort(key=lambda x: x[1], reverse=True)
     return [i[0] for i in supplies]
@@ -173,19 +164,11 @@ supplies = [("Organic Cotton", 3), ("Recycled Polyester", 2), ("Bamboo", 4), ("H
 supplies_2 = [("Linen", 2), ("Recycled Wool", 5), ("Tencel", 3), ("Organic Cotton", 4)]
 supplies_3 = [("Linen", 3), ("Hemp", 2), ("Recycled Polyester", 5), ("Bamboo", 1)]
 
-<<<<<<< HEAD
 # print(process_supplies(supplies))
 # print(process_supplies(supplies_2))
 # print(process_supplies(supplies_3))
 
 # Problem 7: Calculate Fabric Waste
-=======
-print(process_supplies(supplies))
-print(process_supplies(supplies_2))
-print(process_supplies(supplies_3))
-
-
->>>>>>> b75849b1580be4e0d4d710e0eeb84b8378ba8e07
 def calculate_fabric_waste(items, fabric_rolls):
     waste = 0
     for i in range(len(items)):
@@ -201,20 +184,13 @@ fabric_rolls = [4, 4, 4]
 items_3 = [("Jacket", 6), ("Shirt", 2), ("Shorts", 3)]
 fabric_rolls = [7, 5, 5]
 
-<<<<<<< HEAD
 # print(calculate_fabric_waste(items, fabric_rolls))
 # print(calculate_fabric_waste(items_2, fabric_rolls))
 # print(calculate_fabric_waste(items_3, fabric_rolls))
-=======
-print(calculate_fabric_waste(items, fabric_rolls))
-print(calculate_fabric_waste(items_2, fabric_rolls))
-print(calculate_fabric_waste(items_3, fabric_rolls))
->>>>>>> b75849b1580be4e0d4d710e0eeb84b8378ba8e07
 
 
 def organize_fabric_rolls(fabric_rolls):
     sorted_rolls = sorted(fabric_rolls)
-<<<<<<< HEAD
     ans = []
 
     i = 0
@@ -224,23 +200,12 @@ def organize_fabric_rolls(fabric_rolls):
     if i < len(sorted_rolls):
         ans.append(sorted_rolls[i])
     return ans
-=======
-    
-    left = 0
-    right = len(sorted_rolls) - 1
-    
-    while left < right:
->>>>>>> b75849b1580be4e0d4d710e0eeb84b8378ba8e07
         
 
 fabric_rolls = [15, 10, 25, 30, 22]
 fabric_rolls_2 = [5, 8, 10, 7, 12, 14]
 fabric_rolls_3 = [40, 10, 25, 15, 30]
 
-print(organize_fabric_rolls(fabric_rolls))
-print(organize_fabric_rolls(fabric_rolls_2))
-print(organize_fabric_rolls(fabric_rolls_3))
-<<<<<<< HEAD
-=======
-
->>>>>>> b75849b1580be4e0d4d710e0eeb84b8378ba8e07
+# print(organize_fabric_rolls(fabric_rolls))
+# print(organize_fabric_rolls(fabric_rolls_2))
+# print(organize_fabric_rolls(fabric_rolls_3))
