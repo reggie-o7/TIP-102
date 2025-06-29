@@ -188,7 +188,7 @@ fabric_rolls = [7, 5, 5]
 # print(calculate_fabric_waste(items_2, fabric_rolls))
 # print(calculate_fabric_waste(items_3, fabric_rolls))
 
-
+# Problem 8: Fabric Roll Organizer
 def organize_fabric_rolls(fabric_rolls):
     sorted_rolls = sorted(fabric_rolls)
     ans = []
