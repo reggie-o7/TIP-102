@@ -117,7 +117,7 @@ def on_repeat(playlist_head):
     
     while fast and fast.next:
         slow = slow.next
-        fast=fast.next.next
+        fast = fast.next.next
 
         if slow == fast:
             return True
@@ -219,3 +219,40 @@ def count_critical_points(song_audio):
 song_audio = Node(5, Node(3, Node(1, Node(2, Node(5, Node(1, Node(2)))))))
 
 print(count_critical_points(song_audio))
+
+
+
+
+
+class Node:
+	def __init__(self, house, score, next=None):
+            self.house = house
+            self.value = score
+            self.next = next
+
+
+# For testing
+def print_linked_list(head):
+    current = head
+    while current:
+        print((current.house, current.value), end=" -> " if current.next else "\n")
+        current = current.next
+
+def count_element(house_points, score):
+	
+    counter=0
+    curr = house_points
+    while curr:
+        if curr.value == score:
+            counter += 1
+        curr = curr.next
+    return counter
+
+house_points = Node("Gryffindor", 600, 
+                Node("Ravenclaw", 300,
+                    Node("Slytherin", 500,
+                        Node("Hufflepuff", 600))))
+
+score = house_points.value
+
+print(count_element(house_points, score))
